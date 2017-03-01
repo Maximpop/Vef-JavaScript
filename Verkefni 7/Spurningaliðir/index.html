@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Verkefni 7 - DOM</title>
+	<meta charset="UTF-8">
+</head>
+<body>
+<main>
+<div id='one'>Jón</div>
+<div id='two'>Gunnar</div>
+<div id='three'>Karen</div>
+<script type="text/javascript" src="js/main.js"></script>
+
+</main>
+<h3>Spurningar</h3>
+1. Notaðu replace() aðferðina til að breyta textanum Gunnar í Jakob (1%) <br>
+2. Bættu við class eigindið með heitinu active við div element sem geymir Jón með JavaScript (0.5%)<br>
+3. Fjarlægðu html elementið sem geymir Karen með JavaScript (1%)<br>
+4. Hver er munurinn á að nota innerHtml() og DOM Manipulation ( t.d. createElement,
+createTextNode, appendChild)? (0.5%)
+
+
+<h3>Svör</h3>
+<p>
+var id1 = document.getElementById("one");<br>
+var id2 = document.getElementById("two");<br>
+var id3 = document.getElementById("three");<br>
+
+id2.innerHTML = id2.innerHTML.replace("Gunnar","Jakob");<br>
+
+id1.className = "active"; <br>
+
+id3.remove() <br>
+</p>
+<p>Báðar aferðir hafa kosti og galla <b><u>element.innerHTML</u></b> er fljótari aðgerð og nokkuð þægileg því hún leyfir þér að ná í eða uppfæra allt efnið sem er inní elementi og bæta við það eða yfirskrifa það, helstu kostirnir við það eru t.d.:</p>
+<ul> Helstu kostir </ul>
+<li>Þú þarft minni kóða heldur en við að nota dom, og getur það skilað snyrtilegri kóða og fljótari vinnslu en að vera að endalaust að createa og uppfæra og staðsetja </li>
+<li>Getur verið eins og ég minntist á áðan fljótari í vinnslu en DOM þegar maður er að bæta við nýjum elementum á síðuna </li>
+<li>Mjög einfalt til að fjarlægja allt sem er í contenti frá einu elementi með að bara úthluta því tómum streng</li>
+<ul>gallar</ul>
+<li>Ættir ekki að nota þetta til að bæta við efni sem að kemur frá notenda eins og t.d. username eða blog færsla þar sem að það getur fyrir opnað fyrir að notandi skemmi vefinn ef hann setur inn scriptu þarna inn og opnað fyrir fleiri öryggishættum</li>
+<li>Getur verið vesin að einangra staka elementa ef þú vilt uppfæra þá í samvinnu með stórt DOM </li>
+<li>Þetta getur valdið því að event handlerar sem meðtaka viðburði hætta að virka eins og skyldi</li>
+<p> meðan <b><u>DOM MANIPULATION</u></b> þá ertu að vinna með að nota sett af aðferðum og eiginleikum til að annahvort hafa aðgengi að, eða búa til eða uppfæra elementa og texta.
+kostir og gallar við það er:</p>
+<ul>helstu Kostir</ul>
+<li>Þægilegt að vinna með það þegar þú ert að breyta einu elementi í DOMI þar sem eru mörg siblings.</li>
+<li>Það er töluvert ólíklegra að það hafi áhrif á hvernig event handlerarnir þínir virka, eða þá að virkni þeirra haldist eins og ætlast er af þeim en skemmi ekki virknina </li>
+<li>Auðvelt er að skripta þegar þú vilt búa til mörg element í einu trekk í trekk þegar þú vilt ekki breyta alltof miklum kóða í einu</li>
+
+</body>
+</html>

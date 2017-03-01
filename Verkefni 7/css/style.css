@@ -1,0 +1,32 @@
+body
+{
+	align-items: center;
+	background-color:green;
+}
+
+h2
+{
+	text-align: center;
+}
+.quiz
+{
+text-align: center;
+margin-top: 10%;
+border: 1px solid;
+margin-left: 25%;
+margin-right: 25%;
+
+}
+li
+{
+	list-style-type: none;
+}
+.ABCD
+{
+	position: relative;
+	display: inline-block;
+	margin: 3px;
+	border: 1px solid;
+	padding: 20px;
+	text-align: center;
+}
