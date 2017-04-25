@@ -1,46 +1,58 @@
-<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title> API </title>
-	<link rel="stylesheet" type="text/css" href="css/main.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Autocomplete - Default functionality</title>
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#tags" ).autocomplete({
+      source: SearchTags
+    });
+  } );
+  </script>
 </head>
-<body id="body">
-	<h1 class="header">Flug</h1>
-	<table id="table" >
-		<thead>
-			<td>
-				<strong>Airline</strong>
-			</td>
-			<td>
-				<strong>Date</strong>
-			</td>
-			<td>
-				<strong>Flight Number</strong>
-			</td>
-			<td>
-				<strong>From</strong>
-			</td>
-			<td>
-				<strong>Planned Arrival</strong>
-			</td>
-			<td>
-				<strong>Real Arrival</strong>
-			</td>
-			<td>
-				<strong>Status</strong>
-			</td>
-		</thead>
-	</table>
+<body>
+ <body id="body">
+  <h1 class="header">Flug</h1>
+  <input id="tags" onkeyup="myFunction()" placeholder="Search by From...">
+  <table id="myTable" >
+    <thead id="On">
+      <td>
+        <strong>Airline</strong>
+      </td>
+      <td>
+        <strong>Date</strong>
+      </td>
+      <td>
+        <strong>Flight Number</strong>
+      </td>
+      <td>
+        <strong>From</strong>
+      </td>
+      <td>
+        <strong>Planned Arrival</strong>
+      </td>
+      <td>
+        <strong>Real Arrival</strong>
+      </td>
+      
+    </thead>
+  </table>
 </body>
 <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
 <script type="text/javascript">
-	var daobject;
-	$.ajax({
-	  'url': 'http://apis.is/flight?language=en&type=departure',
-	  'type': 'GET',
-	  'dataType': 'json',
-	  'success': function(response) {
+  
+  var SearchTags =[];
+  var daobject;
+  $.ajax({
+    'url': 'http://apis.is/flight?language=en&type=departure',
+    'type': 'GET',
+    'dataType': 'json',
+      'success': function(response) {
 
         for(var i = 0; i < response.results.length; i++) {
             var flight = response.results[i];
@@ -51,10 +63,43 @@
             data.append('<td>' + flight.from + '</td>')
             data.append('<td>' + flight.plannedArrival + '</td>')
             data.append('<td>' + flight.realArrival + '</td>')
-            data.append('<td>' + flight.status + '</td>')
-            $("#table").append(data);
+            $("#myTable").append(data);
+             if (SearchTags.includes(flight.from) === false) {
+             SearchTags.push(flight.from);
+             
+             };
         }
-	   }
-	});
+        
+     }
+  });
+
+    
+function myFunction() {
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("tags");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[3];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1 ) {
+        tr[i].style.display = "";
+        
+      } else {
+        tr[i].style.display = "none";
+
+
+      }
+    } 
+    tr[0].style.display = "";
+  }
+}
 </script>
+</html>
+
+ 
+ 
+</body>
 </html>
