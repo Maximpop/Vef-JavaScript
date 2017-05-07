@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html class="no-js"> 
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="css.css">
+    </head>
+    <body>
+    
+		<div class="container-fluid">
+			<div class="row">
+                    <h1>Síaðu viðburðina:</h1>
+                    <div class="col-md-4">
+                        <h3>Eftir textastreng:</h3>
+                        <input type="text" class="form-control" id="textSearch" placeholder="Leitið og þér munið finna">
+                    </div>
+                    <div class="col-md-4">
+                        <h3>Eftir staðsetningu:</h3>
+                        <div id="checkboxContainer">
+                                
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>Eftir dagsetningu:</h3>
+                        <label for="fromDate">Frá:</label>
+                        <input type="datetime-local" class="form-control" id="fromDate">
+                        <label for="fromDate">Til:</label>
+                        <input type="datetime-local" class="form-control" id="toDate"><br>
+                        <button id="dateButton" class="btn btn-default">Athuga viðburði</button>
+                    </div>
+				<div class="panel panel-default">
+                    
+					<div class="panel-heading">&nbsp;</div>
+					<div class="panel-body">
+						<div class="row" id="mainThing">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+        <!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        <script src="js.js" type="text/javascript" charset="utf-8" defer></script>
+    </body>
+</html>
