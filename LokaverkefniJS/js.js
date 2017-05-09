@@ -31,8 +31,9 @@ function changeDate(date) {
 var filterByDate = function () {
 	var events = $('#mainThing .eventContainer');
 	var cache = [];
-	
+	//bæta events í array
 	events.each(function() {
+		//breyti date í nothæfa breytu
 		var date = $(this).children('.eventTime').data().time.trim().toLowerCase();
 		var fixedDate = new Date(date);
 		cache.push({
@@ -40,6 +41,7 @@ var filterByDate = function () {
 			date: fixedDate.getTime()
 		});
 	});
+	//næ í date from og to frá form
 	$("#dateButton").click(function() {
 		var fromDate = new Date($("#fromDate").val());
 		var toDate = new Date($("#toDate").val());
@@ -58,6 +60,7 @@ var filterByDate = function () {
 var startSearch = function() {
 
 	var events = $('#mainThing .eventContainer');
+	//næ í search div 
 	var search = $('#textSearch');
 	var cache = [];
 	events.each(function() {
@@ -66,7 +69,7 @@ var startSearch = function() {
 			text: $(this).children('.eventName').text().trim().toLowerCase()
 		});
 	});
-	
+	// sía 
 	function filter() {
 	
 		var query = this.value.trim().toLowerCase();
@@ -89,6 +92,7 @@ var getLocations = function() {
 	return allTheLocations.unique();
 
 }
+// hleður inn checkboxes
 var loadLocationCheckboxes = function() {
 
 	var l = getLocations();
@@ -98,7 +102,7 @@ var loadLocationCheckboxes = function() {
 	});
 }
 var checkboxFilter = function () {
-	
+	//nær í checkboxes til að sía gegnum gögn
 	var container = $("#checkboxContainer");
 	var checkers = $(".locationCheckbox");
 	var cache = [];
@@ -110,7 +114,7 @@ var checkboxFilter = function () {
 			text: $(this).children('.location').data().location.trim().toLowerCase()
 		});
 	});
-
+	// keyrir ef það eru einhverjar breytingar í checkboxes
 	checkers.change(function() {
 		console.log(this);
 		var checkedArray = getCheckedArray();
